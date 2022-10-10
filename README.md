@@ -159,7 +159,7 @@ Distributed under the MIT License. See [LICENSE](https://github.com/135yshr/go-c
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@135yshr](https://twitter.com/135yshr) - isago@oreha.dev
+135yshr - [@135yshr](https://twitter.com/135yshr) - isago@oreha.dev
 
 Project Link: [https://github.com/135yshr/go-confernce-mini-2022](https://github.com/135yshr/go-confernce-mini-2022)
 
