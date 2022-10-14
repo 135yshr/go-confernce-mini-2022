@@ -7,6 +7,7 @@ GO_TEST		= $(GO) test
 GO_CLEAN	= $(GO) clean
 GO_TOOL		= $(GO) tool
 GO_VET		= $(GO) vet
+GO_FMT		= $(GO) fmt
 GO_GENERATE	= $(GO) generate
 GOLINT		= golint
 
@@ -53,6 +54,8 @@ lint:
 	$(GOLINT) -set_exit_status ./...
 vet:
 	$(GO_VET) ./...
+fmt:
+	$(GO_FMT) ./...
 
 ## Docker
 docker-build:
