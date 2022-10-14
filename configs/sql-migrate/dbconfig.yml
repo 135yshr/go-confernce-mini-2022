@@ -4,7 +4,13 @@ development:
   dir: configs/sql
   table: migrations
 
-development:
+unittest:
+  dialect: mysql
+  datasource: user:secret@tcp(localhost:3307)/smacare_ut?parseTime=true
+  dir: configs/sql
+  table: migrations
+
+staging:
   dialect: mysql
   datasource: user:secret@/smacare?parseTime=true
   dir: configs/sql

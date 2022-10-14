@@ -1,11 +1,12 @@
 version: "3"
 volumes:
   db-store:
+  db-test-store:
 services:
   app:
     build:
       context: .
-      dockerfile: ./infra/docker/app/Dockerfile
+      dockerfile: ./build/docker/app/Dockerfile
     ports:
       - target: 8080
         published: ${APP_PORT:-8080}
@@ -22,7 +23,7 @@ services:
   db:
     build:
       context: .
-      dockerfile: ./infra/docker/mysql/Dockerfile
+      dockerfile: ./build/docker/mysql/Dockerfile
     ports:
       - target: 3306
         published: ${DB_PORT:-3306}
@@ -36,6 +37,27 @@ services:
           nocopy: true
     environment:
       - MYSQL_DATABASE=${DB_NAME:-smacare}
+      - MYSQL_USER=${DB_USER:-user}
+      - MYSQL_PASSWORD=${DB_PASS:-secret}
+      - MYSQL_ROOT_PASSWORD=${DB_PASS:-secret}
+
+  db-test:
+    build:
+      context: .
+      dockerfile: ./build/docker/mysql/Dockerfile
+    ports:
+      - target: 3306
+        published: ${DB_PORT:-3307}
+        protocol: tcp
+        mode: host
+    volumes:
+      - type: volume
+        source: db-test-store
+        target: /var/lib/mysql
+        volume:
+          nocopy: true
+    environment:
+      - MYSQL_DATABASE=${DB_NAME:-smacare_ut}
       - MYSQL_USER=${DB_USER:-user}
       - MYSQL_PASSWORD=${DB_PASS:-secret}
       - MYSQL_ROOT_PASSWORD=${DB_PASS:-secret}

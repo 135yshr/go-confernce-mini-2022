@@ -74,8 +74,11 @@ sql:
 ## Migration
 migrate-up:
 	$(MIGRATE) up -config=configs/sql-migrate/dbconfig.yml -env=development
+	$(MIGRATE) up -config=configs/sql-migrate/dbconfig.yml -env=unittest
 migrate-redo:
 	$(MIGRATE) redo -config=configs/sql-migrate/dbconfig.yml -env=development
+	$(MIGRATE) redo -config=configs/sql-migrate/dbconfig.yml -env=unittest
 migrate-down:
 	$(MIGRATE) down -config=configs/sql-migrate/dbconfig.yml -env=development
+	$(MIGRATE) down -config=configs/sql-migrate/dbconfig.yml -env=unittest
 
