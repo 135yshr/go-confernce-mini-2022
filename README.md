@@ -174,11 +174,9 @@ Project Link: [https://github.com/135yshr/go-confernce-mini-2022](https://github
 ## Other
 
 * The Go gopher was designed by [Renee French](http://reneefrench.blogspot.com/)
+* The gopher used in the logo was designed by [Takuya Ueda](https://twitter.com/tenntenn)
 * The design is licensed under the Creative Commons 3.0 Attributions license.
 * Read this article for more details: https://blog.golang.org/gopher
-
-
-* The gopher used in the logo was designed by [Takuya Ueda](https://twitter.com/tenntenn)
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
