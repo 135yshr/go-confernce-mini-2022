@@ -7,6 +7,7 @@ GO_TEST		= $(GO) test
 GO_CLEAN	= $(GO) clean
 GO_TOOL		= $(GO) tool
 GO_VET		= $(GO) vet
+GO_GENERATE	= $(GO) generate
 GOLINT		= golint
 
 MAIN_GO		= cmd/main.go
@@ -31,6 +32,8 @@ prepare:
 	@chmod +x .git/hooks/*
 
 ## Build
+gen:
+	$(GO_GENERATE) ./...
 run:
 	$(GO_RUN) $(MAIN_GO)
 build:
