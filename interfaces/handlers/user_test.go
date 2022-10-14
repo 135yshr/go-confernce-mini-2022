@@ -12,7 +12,7 @@ import (
 
 func TestUserHandler(t *testing.T) {
 	t.Run("UserHandler", func(t *testing.T) {
-		t.Run("利用者譲歩を受け取り正常に処理が終了すること", func(t *testing.T) {
+		t.Run("利用者情報を受け取り正常に処理が終了すること", func(t *testing.T) {
 			ctrl := gomock.NewController(t)
 			defer ctrl.Finish()
 
