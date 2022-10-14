@@ -10,7 +10,7 @@ GO_VET		= $(GO) vet
 GOLINT		= golint
 
 MAIN_GO		= cmd/main.go
-BIN_NAME	= bin/smacare
+BIN_NAME	= bin/gocon2022
 OUT_DIR		= out/
 COVER_DIR	= $(OUT_DIR)cover/
 COVER_FILE	= $(COVER_DIR)cover.out
@@ -51,7 +51,7 @@ vet:
 
 ## Docker
 docker-build:
-	$(DOCKER_COMPOSE) build --progress=plain --no-cache --force-rm
+	$(DOCKER_COMPOSE) build --no-cache --force-rm #--progress=plain
 up:
 	$(DOCKER_COMPOSE) up -d
 down:
