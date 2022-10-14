@@ -19,6 +19,8 @@ COVER_HTML	= $(COVER_DIR)cover.html
 DOCKER      = docker
 DOCKER_COMPOSE = $(DOCKER) compose
 
+MIGRATE		= sql-migrate
+
 VERSION?=0.0.0
 
 all: clean test build
@@ -68,4 +70,12 @@ log-db:
 	$(DOCKER_COMPOSE) logs -f db
 sql:
 	$(DOCKER_COMPOSE) exec db mysql -u $$MYSQL_USER -p $$MYSQL_PASSWORD $$MYSQL_DATABASE
+
+## Migration
+migrate-up:
+	$(MIGRATE) up -config=configs/sql-migrate/dbconfig.yml -env=development
+migrate-redo:
+	$(MIGRATE) redo -config=configs/sql-migrate/dbconfig.yml -env=development
+migrate-down:
+	$(MIGRATE) down -config=configs/sql-migrate/dbconfig.yml -env=development
 

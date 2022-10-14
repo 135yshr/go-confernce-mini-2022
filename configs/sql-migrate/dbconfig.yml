@@ -1,0 +1,12 @@
+development:
+  dialect: mysql
+  datasource: user:secret@/smacare?parseTime=true
+  dir: configs/sql
+  table: migrations
+
+development:
+  dialect: mysql
+  datasource: user:secret@/smacare?parseTime=true
+  dir: configs/sql
+  table: migrations
+
