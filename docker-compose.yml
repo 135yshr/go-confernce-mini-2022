@@ -47,7 +47,7 @@ services:
       dockerfile: ./build/docker/mysql/Dockerfile
     ports:
       - target: 3306
-        published: ${DB_PORT:-3307}
+        published: ${TESTDB_PORT:-3307}
         protocol: tcp
         mode: host
     volumes:
@@ -57,7 +57,7 @@ services:
         volume:
           nocopy: true
     environment:
-      - MYSQL_DATABASE=${DB_NAME:-smacare_ut}
+      - MYSQL_DATABASE=${TESTDB_NAME:-smacare_ut}
       - MYSQL_USER=${DB_USER:-user}
       - MYSQL_PASSWORD=${DB_PASS:-secret}
       - MYSQL_ROOT_PASSWORD=${DB_PASS:-secret}

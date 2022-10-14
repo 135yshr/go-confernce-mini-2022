@@ -2,6 +2,7 @@ package persistence
 
 import (
 	"database/sql"
+	"log"
 
 	"github.com/135yshr/go-confernce-mini-2022/domain/model"
 	"github.com/135yshr/go-confernce-mini-2022/domain/repository"
@@ -16,6 +17,7 @@ func NewUserRepository(db *sql.DB) repository.UserRepository {
 }
 
 func (u *userRepository) Insert(user *model.User) error {
+	log.Println("persistence: insert user")
 	stmt, err := u.db.Prepare("INSERT INTO users (name, furigana, photo) VALUES (?, ?, ?)")
 	if err != nil {
 		return err

@@ -3,6 +3,8 @@ package usecase
 //go:generate mockgen -source=$GOFILE -destination=./mock/mock_$GOFILE -package=$GOPACKAGE
 
 import (
+	"log"
+
 	"github.com/135yshr/go-confernce-mini-2022/domain/model"
 	"github.com/135yshr/go-confernce-mini-2022/domain/repository"
 )
@@ -20,7 +22,9 @@ func NewUserUsecase(repo repository.UserRepository) UserUsecase {
 }
 
 func (uc *userUsecase) Create(u *model.User) error {
+	log.Println("usecase: create user")
 	if err := uc.repo.Insert(u); err != nil {
+		log.Println(err)
 		return NewError(100, "failed to insert user")
 	}
 	return nil
