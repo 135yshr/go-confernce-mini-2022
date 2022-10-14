@@ -5,10 +5,11 @@ import (
 	"log"
 
 	"github.com/135yshr/go-confernce-mini-2022/server"
+    "github.com/135yshr/go-confernce-mini-2022/registry"
 )
 
 func main() {
-	fmt.Println("Hello, World!")
-	s := server.New()
+	fmt.Println("===== start =====")
+	s := server.New(registry.NewRegistry())
 	log.Fatal(s.Start())
 }

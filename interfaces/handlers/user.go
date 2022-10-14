@@ -8,6 +8,7 @@ import (
 )
 
 type UserHandler interface {
+	ServeHTTP(w http.ResponseWriter, r *http.Request)
 	Create(w http.ResponseWriter, r *http.Request)
 }
 
@@ -17,6 +18,10 @@ type userHandler struct {
 
 func NewUserHandler(uc usecase.UserUsecase) UserHandler {
 	return &userHandler{uc: uc}
+}
+
+func (h *userHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	h.Create(w, r)
 }
 
 func (h *userHandler) Create(w http.ResponseWriter, r *http.Request) {

@@ -47,7 +47,7 @@ services:
       dockerfile: ./build/docker/mysql/Dockerfile
     ports:
       - target: 3306
-        published: ${DB_PORT:-3307}
+        published: ${TESTDB_PORT:-3307}
         protocol: tcp
         mode: host
     volumes:
