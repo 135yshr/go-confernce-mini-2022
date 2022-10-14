@@ -10,11 +10,14 @@ GO_VET		= $(GO) vet
 GOLINT		= golint
 
 MAIN_GO		= cmd/main.go
-BIN_NAME	= build/smacare
+BIN_NAME	= bin/smacare
 OUT_DIR		= out/
 COVER_DIR	= $(OUT_DIR)cover/
 COVER_FILE	= $(COVER_DIR)cover.out
 COVER_HTML	= $(COVER_DIR)cover.html
+
+DOCKER      = docker
+DOCKER_COMPOSE = $(DOCKER) compose
 
 VERSION?=0.0.0
 
@@ -29,10 +32,10 @@ prepare:
 run:
 	$(GO_RUN) $(MAIN_GO)
 build:
-	$(GO_BUILD) -o $(BIN_DIR)$(BIN_NAME) $(MAIN_GO)
+	$(GO_BUILD) -o $(OUT_DIR)$(BIN_NAME) $(MAIN_GO)
 clean:
 	$(GO_CLEAN)
-	@rm -rf $(BIN_DIR)$(BIN_NAME)
+	@rm -rf $(OUT_DIR)
 
 ## Test
 test:
@@ -45,4 +48,24 @@ lint:
 	$(GOLINT) -set_exit_status ./...
 vet:
 	$(GO_VET) ./...
+
+## Docker
+docker-build:
+	$(DOCKER_COMPOSE) build --progress=plain --no-cache --force-rm
+up:
+	$(DOCKER_COMPOSE) up -d
+down:
+	$(DOCKER_COMPOSE) down --remove-orphans
+restart:
+	$(DOCKER_COMPOSE) restart
+app:
+	$(DOCKER_COMPOSE) exec app sh
+db:
+	$(DOCKER_COMPOSE) exec db sh
+log-app:
+	$(DOCKER_COMPOSE) logs -f app
+log-db:
+	$(DOCKER_COMPOSE) logs -f db
+sql:
+	$(DOCKER_COMPOSE) exec db mysql -u $$MYSQL_USER -p $$MYSQL_PASSWORD $$MYSQL_DATABASE
 
