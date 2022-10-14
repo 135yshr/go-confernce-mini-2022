@@ -39,7 +39,7 @@
   <h3 align="center">Go Conference mini 2022 Autumn IN SENDAI</h3>
 
   <p align="center">
-    Go Conference mini 2022 Autumn IN SENDAI
+    This is a sample program used for a session at Go Conference mini 2022 Autumn IN SENDAI.
     <br />
     <a href="https://github.com/135yshr/go-confernce-mini-2022"><strong>Explore the docs »</strong></a>
     <br />
