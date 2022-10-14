@@ -110,6 +110,7 @@ This is an example of how to list things you need to use the software and how to
 * [Go](https://golang.org)
 * [mockgen](https://github.com/golang/mock)
 * [sql-migrate](https://github.com/rubenv/sql-migrate)
+* [direnv](https://github.com/direnv/direnv)
 
 ### Installation
 
