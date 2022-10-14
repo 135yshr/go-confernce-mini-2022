@@ -15,6 +15,7 @@ type Registry struct {
 
 func NewRegistry() *Registry {
 	r := &Registry{}
+
 	r.UserRepository = persistence.NewUserRepository(persistence.Instance())
 	r.UserUseCase = usecase.NewUserUsecase(r.UserRepository)
 	r.UserHandler = handler.NewUserHandler(r.UserUseCase)

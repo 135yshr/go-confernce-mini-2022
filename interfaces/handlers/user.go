@@ -1,6 +1,7 @@
 package handlers
 
 import (
+	"log"
 	"net/http"
 
 	"github.com/135yshr/go-confernce-mini-2022/domain/model"
@@ -21,10 +22,16 @@ func NewUserHandler(uc usecase.UserUsecase) UserHandler {
 }
 
 func (h *userHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	log.Println("handler: serve http")
 	h.Create(w, r)
 }
 
 func (h *userHandler) Create(w http.ResponseWriter, r *http.Request) {
-	h.uc.Create(&model.User{})
+	log.Println("handler: create user")
+	user := &model.User{
+		Name:     "山田太郎",
+		Furigana: "ヤマダタロウ",
+	}
+	h.uc.Create(user)
 	w.WriteHeader(http.StatusCreated)
 }
