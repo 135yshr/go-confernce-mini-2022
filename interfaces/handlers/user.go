@@ -3,7 +3,7 @@ package handlers
 import (
 	"net/http"
 
-    "github.com/135yshr/go-confernce-mini-2022/domain/model"
+	"github.com/135yshr/go-confernce-mini-2022/domain/model"
 	"github.com/135yshr/go-confernce-mini-2022/usecase"
 )
 
@@ -20,6 +20,6 @@ func NewUserHandler(uc usecase.UserUsecase) UserHandler {
 }
 
 func (h *userHandler) Create(w http.ResponseWriter, r *http.Request) {
-    h.uc.Create(&model.User{})
-    w.WriteHeader(http.StatusCreated)
+	h.uc.Create(&model.User{})
+	w.WriteHeader(http.StatusCreated)
 }
